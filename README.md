@@ -1,101 +1,71 @@
-# CodeIgniter 4 Development
-
-[![Build Status](https://travis-ci.org/codeigniter4/CodeIgniter4.svg?branch=develop)](https://travis-ci.org/codeigniter4/CodeIgniter4)
-[![Coverage Status](https://coveralls.io/repos/github/codeigniter4/CodeIgniter4/badge.svg?branch=develop)](https://coveralls.io/github/codeigniter4/CodeIgniter4?branch=develop)
-[![Downloads](https://poser.pugx.org/codeigniter4/framework/downloads)](https://packagist.org/packages/codeigniter4/framework)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/codeigniter4/CodeIgniter4)](https://packagist.org/packages/codeigniter4/framework)
-[![GitHub stars](https://img.shields.io/github/stars/codeigniter4/CodeIgniter4)](https://packagist.org/packages/codeigniter4/framework)
-[![GitHub license](https://img.shields.io/github/license/codeigniter4/CodeIgniter4)](https://github.com/codeigniter4/CodeIgniter4/blob/develop/license.txt)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/codeigniter4/CodeIgniter4/pulls)
-<br>
-
-## What is CodeIgniter?
-
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible, and secure.
-More information can be found at the [official site](http://codeigniter.com).
-
-This repository holds the source code for CodeIgniter 4 only.
-Version 4 is a complete rewrite to bring the quality and the code into a more modern version,
-while still keeping as many of the things intact that has made people love the framework over the years.
-
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
-
-### Documentation
-
-The [User Guide](https://codeigniter4.github.io/userguide/) is the primary documentation for CodeIgniter 4.
-
-The current **in-progress** User Guide can be found [here](https://codeigniter4.github.io/CodeIgniter4/).
-As with the rest of the framework, it is a work in progress, and will see changes over time to structure, explanations, etc.
-
-You might also be interested in the [API documentation](https://codeigniter4.github.io/api/) for the framework components.
-
-## Important Change with index.php
-
-index.php is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-The user guide updating and deployment is a bit awkward at the moment, but we are working on it!
-
-## Repository Management
-
-CodeIgniter is developed completely on a volunteer basis. As such, please give up to 7 days
-for your issues to be reviewed. If you haven't heard from one of the team in that time period,
-feel free to leave a comment on the issue so that it gets brought back to our attention.
-
-We use Github issues to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-If you raise an issue here that pertains to support or a feature request, it will
-be closed! If you are not sure if you have found a bug, raise a thread on the forum first -
-someone else may have encountered the same thing.
-
-Before raising a new Github issue, please check that your bug hasn't already
-been reported or fixed.
-
-We use pull requests (PRs) for CONTRIBUTIONS to the repository.
-We are looking for contributions that address one of the reported bugs or
-approved work packages.
-
-Do not use a PR as a form of feature request.
-Unsolicited contributions will only be considered if they fit nicely
-into the framework roadmap.
-Remember that some components that were part of CodeIgniter 3 are being moved
-to optional packages, with their own repository.
-
-## Contributing
-
-We **are** accepting contributions from the community!
-
-We will try to manage the process somewhat, by adding a ["help wanted" label](https://github.com/codeigniter4/CodeIgniter4/labels/help%20wanted) to those that we are
-specifically interested in at any point in time. Join the discussion for those issues and let us know
-if you want to take the lead on one of them.
-
-At this time, we are not looking for out-of-scope contributions, only those that would be considered part of our controlled evolution!
-
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the user guide.
-
-## Server Requirements
-
-PHP version 7.2 or higher is required, with the following extensions installed:
+Free public: Sistem informasi Pendaftaran Pasien Berobat
+<b>Step by step :</b>
+1. Git repository : git clone https://github.com/username/repository_name.git,
+2. Create Database,
+3. setting env
+4. Migrate Table: <i>php spark migrate </i> and check status: <i>php migrate status</i>
+5. Run: <i>php spark serve</i>
 
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<th style="width:20px;">No</th>
+										<th colspan="2" style="text-align: center;">DATA INFORMASI</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td style="width: 400px;">Nama Sistem</td>
+										<td>Aplikasi Pendaftaran Pasien Berobat</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td style="width: 400px;">Deskripsi Sistem</td>
+										<td>Sistem ini digunakan untuk manajemen kunjungan berobat pasien secara digital</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td style="width: 400px;">Tujuan Pengembangan</td>
+										<td>Memperbaiki pendataan rekam medis pasien secara digital dan dalam bentuk pelaporan</td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td style="width: 400px;">Hak Akses Pengguna</td>
+										<td>
+											<ul class="mb-0">
+												<li><strong>Admin:</strong> Manajemen pengguna, kontrol penuh sistem</li>
+												<li><strong>User:</strong> pengelolaan laporan kunjungan pasien</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td style="width: 400px;">Teknologi & Tools yang Digunakan</td>
+										<td>
+											<ul class="mb-0">
+												<li><strong>Framework Backend:</strong> CodeIgniter 4 (PHP 7.4+)</li>
+												<li><strong>Database:</strong> MySQL / MariaDB</li>
+												<li><strong>Frontend:</strong> Bootstrap 4, jQuery, DataTables</li>
+												<li><strong>Server:</strong> Apache / Nginx</li>
+												<li><strong>Version Control:</strong> Git (GitHub / GitLab)</li>
+												<li><strong>Tools Pengembangan:</strong> VS Code, XAMPP</li>
+												<li><strong>Template:</strong> AdminLTE 3</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<td>6</td>
+										<td style="width: 400px;">Kontak Pengembang</td>
+										<td>
+											<ul class="mb-0">
+												<li><strong>Email:</strong> sriwijayabersamateknologi@gmail.com</li>
+												<li><strong>Github:</strong> https://github.com/redhorivai</li>
+											</ul>
+										</td>
+									</tr>
+								</tbody>
+							</table>
 
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- xml (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-
-## Running CodeIgniter Tests
-
-Information on running the CodeIgniter test suite can be found in the [README.md](tests/README.md) file in the tests directory.
-# aplikasi-pendaftaran-berobat
+Full version private: https://lynk.id/sribertech <i>(development continues)</i> 
