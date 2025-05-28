@@ -29,6 +29,8 @@
 	<!-- Select2 -->
 	<link rel="stylesheet" href="<?= base_url(); ?>/assets-admin/plugins/select2/css/select2.min.css">
 	<link rel="stylesheet" href="<?= base_url(); ?>/assets-admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 
 </head>

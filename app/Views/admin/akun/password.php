@@ -18,7 +18,7 @@
 			</div>
 		</div><!-- /.container-fluid -->
 	</section>
-	<form action="#" id='form' class="form-data">
+	<form action="#" id='formPassword' class="form-data">
 		<?php foreach ($akun as $key): ?>
 			<?php
 			if ($key->jenis_kelamin == 'L') {
@@ -36,64 +36,70 @@
 					</div>
 					<div class="form-group">
 						<label>Jenis kelamin: <span class='text-danger'>*</span></label>
-						<input type="text" class="form-control" id="jenis_kelamin" name="jenis_kelamin" value="<?= $jk; ?>" disabled>
+						<input type="text" class="form-control" id="jenis_kelamin" name="jenis_kelamin" value="<?= $jk; ?>"
+							disabled>
 					</div>
 					<div class="form-group">
 						<label>Telepon: <span class='text-danger'>*</span></label>
-						<input type="number" class="form-control" id="telepon" name="telepon" value="<?= $key->telepon; ?>" disabled>
+						<input type="number" class="form-control" id="telepon" name="telepon" value="<?= $key->telepon; ?>"
+							disabled>
 					</div>
 					<div class="form-group">
 						<label>Email: <span class='text-danger'>*</span></label>
-						<input type="email" class="form-control" id="email" name="email" value="<?= $key->email; ?>" disabled>
+						<input type="email" class="form-control" id="email" name="email" value="<?= $key->email; ?>"
+							disabled>
 					</div>
 					<div class="form-group">
 						<label>Alamat: <span class='text-danger'>*</span></label>
-						<textarea rows="3" id="alamat" name="alamat" class="form-control" disabled><?= $key->alamat; ?></textarea>
+						<textarea rows="3" id="alamat" name="alamat" class="form-control"
+							disabled><?= $key->alamat; ?></textarea>
 					</div>
 					<div class="form-group">
-						<label>Password: <span class='text-danger'>*</span></label>
-						<input type="password" class="form-control" id="password" name="password" placeholder="masukan kata sandi baru">
+						<label>Password Baru</label>
+						<input type="password" id="password" name="password" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Konfirmasi Password</label>
+						<input type="password" id="password_confirm" name="password_confirm" class="form-control" required>
 					</div>
 				</div>
 			</div>
 		<?php endforeach ?>
 
 		<div class="modal-footer">
-			<button type="button" class="btn btn-danger" onclick="_resetData()">Reset</button>
-			<button type="button" class="btn btn-primary" onclick="_simpanData()">Simpan</button>
+			<button type="submit" class="btn btn-primary">Ubah Password</button>
 		</div>
 	</form>
 </div>
 <script type="text/javascript">
-	function _resetData(){
-		document.getElementById("form").reset();
-	}
-	function _simpanData() {
-		var password = $("#password").val();
-		if (password == "") {
-			$("#password").focus();
-			$('#password').addClass('is-invalid');
-		} else {
-			$('#password').removeClass('is-invalid');
+	$('#formPassword').submit(function(e) {
+		e.preventDefault();
+
+		const password = $('#password').val();
+		const confirm = $('#password_confirm').val();
+
+		if (password !== confirm) {
+			toastr.error('Password dan konfirmasi tidak cocok.');
+			return;
 		}
-		if (confirm(`Yakin data akan disimpan?`)) {
-			$.ajax({
-				url: "<?= site_url('Akun/update_password') ?>",
-				type: "POST",
-				data: new FormData($('#form')[0]),
-				dataType: 'JSON',
-				contentType: false,
-				processData: false,
-				success: function(data) {
-					if (data.status) {
-						toastr.success(`data berhasil disimpan`);
-						setTimeout(function() { // wait for 5 secs(2)
-							location.reload(); // then reload the page.(3)
-						}, 1000);
-					}
-				},
-			});
-		}
-	}
+
+		$.ajax({
+			url: "<?= site_url('Akun/update_password') ?>",
+			type: "POST",
+			data: $(this).serialize(),
+			dataType: "JSON",
+			success: function(response) {
+				if (response.sukses) {
+					toastr.success('Password berhasil diperbarui');
+					$('#formPassword')[0].reset();
+				} else {
+					toastr.error('Gagal memperbarui password');
+				}
+			},
+			error: function(xhr) {
+				alert(xhr.responseText);
+			}
+		});
+	});
 </script>
 <?= $this->endSection() ?>

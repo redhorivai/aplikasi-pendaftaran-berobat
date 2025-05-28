@@ -19,27 +19,10 @@ class AkunModel extends Model
 		$return = $query->get();
 		return $return->getResult();
 	}
-	public function getAkun()
+	public function updatePassword($id_user, $data)
 	{
-		$query = $this->db->table('users');
-		$query->select('*');
-		$query->where('status_cd', 'normal');
-		$return = $query->get();
-		return $return->getResult();
-	}
-
-	public function insertData($id,$data) {
-		$query = $this->db->table('users');
-		$query->where('id', $id);
-		$query->set($data);
-		return $query->update();
-	}
-	public function get_id($id)
-	{
-		$query = $this->db->table('users');
-		$query->select('*');
-		$query->where('id', $id);
-		$query->where('status_cd', 'normal');
-		return $query->get();
+		return $this->db->table('users') // ganti nama tabel jika berbeda
+			->where('id', $id_user)
+			->update($data);
 	}
 }
